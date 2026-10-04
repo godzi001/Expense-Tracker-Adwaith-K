@@ -1,0 +1,648 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+.header p {
+    color: #777;
+    font-size: 15px;
+}
+
+.add-btn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    background-color: #1f2937;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background-color: #374151;
+}
+
+
+/* =========================
+   Summary Cards
+========================= */
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background-color: white;
+    padding: 22px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.summary-card h3 {
+    font-size: 14px;
+    font-weight: normal;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.summary-card p {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   Transactions Section
+========================= */
+
+.transactions-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+}
+
+
+/* =========================
+   Filters
+========================= */
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 10px 12px;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+#searchInput {
+    flex: 1;
+    min-width: 180px;
+}
+
+.filters input:focus,
+.filters select:focus {
+    border-color: #888;
+}
+
+.export-btn {
+    padding: 10px 15px;
+    border: 1px solid #d5d5d5;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.export-btn:hover {
+    background-color: #e9e9e9;
+}
+
+
+/* =========================
+   Transaction Items
+========================= */
+
+.transaction-list {
+    margin-top: 10px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 5px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-item strong {
+    font-size: 15px;
+}
+
+.transaction-item p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.transaction-item small {
+    color: #999;
+    font-size: 12px;
+}
+
+.transaction-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.transaction-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.edit-btn,
+.delete-btn {
+    border: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-btn {
+    background-color: #f0f0f0;
+}
+
+.edit-btn:hover {
+    background-color: #e4e4e4;
+}
+
+.delete-btn {
+    background-color: #f5f5f5;
+}
+
+.delete-btn:hover {
+    background-color: #e5e5e5;
+}
+
+
+/* =========================
+   Empty Message
+========================= */
+
+.empty-message {
+    padding: 35px 15px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+
+/* =========================
+   Modal
+========================= */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    font-size: 27px;
+    cursor: pointer;
+    color: #444;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+
+/* =========================
+   Form
+========================= */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #777;
+}
+
+.error-message {
+    display: block;
+    color: #d33;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.cancel-btn,
+.save-btn {
+    padding: 10px 17px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cancel-btn {
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.save-btn {
+    border: none;
+    background-color: #222;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #444;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .transactions-section {
+        padding: 18px;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    #searchInput,
+    .filters select,
+    .export-btn {
+        width: 100%;
+    }
+
+    .transaction-item {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .transaction-right {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+    }
+
+    .modal-content {
+        padding: 22px;
+    }
+
+}
+.income-amount {
+    color: #238636;
+}
+
+.expense-amount {
+    color: #d73a49;
+}
+/* =========================
+   Monthly Summary
+========================= */
+
+.monthly-summary {
+    background-color: white;
+    padding: 20px 22px;
+    margin-bottom: 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.monthly-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 15px;
+}
+
+.monthly-header h2 {
+    font-size: 18px;
+}
+
+#monthFilter {
+    padding: 9px 12px;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.monthly-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.monthly-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.monthly-details span {
+    color: #777;
+    font-size: 13px;
+}
+
+.monthly-details strong {
+    font-size: 20px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    .monthly-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #monthFilter {
+        width: 100%;
+    }
+
+    .monthly-details {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .monthly-details {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+}
+
+/* =========================
+   Monthly Budget
+========================= */
+
+.budget-section {
+    background-color: white;
+    padding: 22px;
+    margin-bottom: 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.budget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.budget-header h2 {
+    font-size: 18px;
+}
+
+.budget-input {
+    display: flex;
+    gap: 8px;
+}
+
+.budget-input input {
+    width: 150px;
+    padding: 9px 11px;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    outline: none;
+}
+
+.budget-input input:focus {
+    border-color: #777;
+}
+
+.budget-input button {
+    padding: 9px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+}
+
+.budget-input button:hover {
+    background-color: #444;
+}
+
+
+/* Budget Information */
+
+.budget-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.budget-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.budget-info span {
+    color: #777;
+    font-size: 13px;
+}
+
+.budget-info strong {
+    font-size: 20px;
+}
+
+
+/* Progress Bar */
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #4f46e5;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #777;
+}
+
+.budget-message {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #777;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .budget-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .budget-input {
+        width: 100%;
+    }
+
+    .budget-input input {
+        flex: 1;
+        width: auto;
+    }
+
+    .budget-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+}

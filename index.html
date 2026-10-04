@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>Expense Tracker</h1>
+                <p>Manage your income and expenses</p>
+            </div>
+
+            <button class="add-btn" id="addTransactionBtn">
+                + Add Transaction
+            </button>
+        </header>
+
+
+        <!-- Summary Cards -->
+        <section class="summary">
+
+            <div class="summary-card">
+                <h3>Balance</h3>
+                <p id="balance">₹0.00</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>Total Income</h3>
+                <p id="income">₹0.00</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>Total Expenses</h3>
+                <p id="expenses">₹0.00</p>
+            </div>
+
+        </section>
+
+        <!-- Monthly Summary -->
+        <section class="monthly-summary">
+
+            <div class="monthly-header">
+
+                <h2 id="monthlyTitle">Monthly Summary</h2>
+
+                <select id="monthFilter">
+                    <option value="">Select Month</option>
+                </select>
+
+            </div>
+
+            <div class="monthly-details">
+
+                <div>
+                    <span>Income</span>
+                    <strong id="monthlyIncome">₹0.00</strong>
+                </div>
+
+                <div>
+                    <span>Expenses</span>
+                    <strong id="monthlyExpenses">₹0.00</strong>
+                </div>
+
+                <div>
+                    <span>Balance</span>
+                    <strong id="monthlyBalance">₹0.00</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Monthly Budget -->
+        <section class="budget-section">
+
+            <div class="budget-header">
+                <h2>Monthly Budget</h2>
+
+                <div class="budget-input">
+                    <input type="number" id="budgetInput" min="1" placeholder="Enter budget">
+
+                    <button id="setBudgetBtn">
+                        Set Budget
+                    </button>
+                </div>
+            </div>
+
+            <div class="budget-info">
+
+                <div>
+                    <span>Budget</span>
+                    <strong id="budgetAmount">₹0.00</strong>
+                </div>
+
+                <div>
+                    <span>Spent</span>
+                    <strong id="budgetSpent">₹0.00</strong>
+                </div>
+
+                <div>
+                    <span>Remaining</span>
+                    <strong id="budgetRemaining">₹0.00</strong>
+                </div>
+
+            </div>
+
+            <div class="progress-area">
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill">
+                    </div>
+                </div>
+
+                <div class="progress-text">
+                    <span id="progressText">0% spent</span>
+                </div>
+
+            </div>
+
+            <p id="budgetMessage" class="budget-message"></p>
+
+        </section>
+
+
+        <!-- Transactions Section -->
+        <section class="transactions-section">
+
+            <div class="section-header">
+                <h2>Transactions</h2>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+
+                <input type="text" id="searchInput" placeholder="Search transactions...">
+
+                <select id="typeFilter">
+                    <option value="all">All</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Health">Health</option>
+                    <option value="Education">Education</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <select id="sortFilter">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="highest">Highest Amount</option>
+                    <option value="lowest">Lowest Amount</option>
+                </select>
+
+                <button id="exportBtn" class="export-btn">
+                    Export CSV
+                </button>
+
+            </div>
+
+
+            <!-- Transaction List -->
+            <div id="transactionList" class="transaction-list">
+
+                <div class="empty-message">
+                    No transactions yet.
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- Add/Edit Transaction Modal -->
+    <div class="modal hidden" id="transactionModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Transaction</h2>
+
+                <button id="closeModal" class="close-btn">
+                    &times;
+                </button>
+            </div>
+
+
+            <form id="transactionForm">
+
+                <!-- Type -->
+                <div class="form-group">
+                    <label for="type">Transaction Type</label>
+
+                    <select id="type" required>
+                        <option value="">Select Type</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+
+
+                <!-- Amount -->
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+
+                    <input type="number" id="amount" min="1" step="0.01" placeholder="Enter amount" required>
+
+                    <small id="amountError" class="error-message"></small>
+                </div>
+
+
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label for="category">Category</label>
+
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Health">Health</option>
+                        <option value="Education">Education</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label for="date">Date</label>
+
+                    <input type="date" id="date" required>
+                </div>
+
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+
+                    <input type="text" id="description" placeholder="Enter description">
+                </div>
+
+
+                <!-- Form Buttons -->
+                <div class="form-actions">
+
+                    <button type="button" id="cancelBtn" class="cancel-btn">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="save-btn">
+                        Save Transaction
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
