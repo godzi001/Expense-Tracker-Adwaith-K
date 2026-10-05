@@ -4,6 +4,10 @@ A simple and responsive web-based Expense Tracker built using HTML, CSS, and Jav
 
 The application helps users manage their income and expenses, view financial summaries, set monthly budgets, and track their spending directly in the browser.
 
+## Live Demo
+
+[View Live Expense Tracker](https://godzi001.github.io/Expense-Tracker-Adwaith-K/)
+
 ## Screenshots
 
 ### Dashboard
