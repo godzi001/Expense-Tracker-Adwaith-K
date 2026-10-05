@@ -21,13 +21,6 @@ The application helps users manage their income and expenses, view financial sum
 
 ### Mobile Responsive View
 ![Mobile Responsive View](screenshots/Mobile.png)
-### Transactions
-
-![Transactions and Filters](screenshots/monthly-budget.png)
-
-### Mobile Responsive View
-
-![Mobile Responsive View](screenshots/mobile.png)
 
 ## Features
 
