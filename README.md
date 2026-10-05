@@ -11,13 +11,16 @@ The application helps users manage their income and expenses, view financial sum
 ## Screenshots
 
 ### Dashboard
-
-![Expense Tracker Dashboard](screenshots/dashboard.png)
+![Expense Tracker Dashboard](screenshots/Dashboard.png)
 
 ### Add Transaction
+![Add Transaction](screenshots/Add-Transaction.png)
 
-![Add Transaction](screenshots/add-transaction.png)
+### Transactions
+![Transactions and Filters](screenshots/Monthly-Budget.png)
 
+### Mobile Responsive View
+![Mobile Responsive View](screenshots/Mobile.png)
 ### Transactions
 
 ![Transactions and Filters](screenshots/monthly-budget.png)
