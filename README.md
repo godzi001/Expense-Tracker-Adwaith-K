@@ -47,6 +47,17 @@ The application helps users manage their income and expenses, view financial sum
 - Browser Local Storage
 - CSV Export using JavaScript
 
+## How to Run
+
+### Run Locally
+
+1. Clone or download this repository.
+2. Open the project folder.
+3. Open `index.html` in a web browser.
+4. The Expense Tracker will run directly in the browser.
+
+No additional installation, dependencies, or server setup are required.
+
 ## Project Structure
 
 ```text
