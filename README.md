@@ -4,6 +4,24 @@ A simple and responsive web-based Expense Tracker built using HTML, CSS, and Jav
 
 The application helps users manage their income and expenses, view financial summaries, set monthly budgets, and track their spending directly in the browser.
 
+## Screenshots
+
+### Dashboard
+
+![Expense Tracker Dashboard](screenshots/dashboard.png)
+
+### Add Transaction
+
+![Add Transaction](screenshots/add-transaction.png)
+
+### Transactions
+
+![Transactions and Filters](screenshots/monthly-budget.png)
+
+### Mobile Responsive View
+
+![Mobile Responsive View](screenshots/mobile.png)
+
 ## Features
 
 - Add income and expense transactions
